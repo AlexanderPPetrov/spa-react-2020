@@ -3,8 +3,8 @@ import QuantityInput from '../components/QuantityInput';
 class Home extends React.Component {
 
     render() {
-        return <div>
-            <QuantityInput/>
+        return <div className="col-md-3">
+            <QuantityInput count={5}/>
         </div>
     }
 }
