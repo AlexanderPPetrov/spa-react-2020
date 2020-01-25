@@ -9,10 +9,12 @@ import {
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Users from './pages/Users';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
+      <Navbar/>
       <div>
         <nav>
           <ul>
