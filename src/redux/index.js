@@ -1,5 +1,6 @@
 
 import { combineReducers } from 'redux'
+
 const counter = function(count = 1, action) {
     switch(action.type) {
         case "INCREMENT_COUNT": {
@@ -7,6 +8,17 @@ const counter = function(count = 1, action) {
         }
         default:
             return count;
+        
+    }
+}
+
+const title = function(title = "Default Title", action) {
+    switch(action.type) {
+        case "SET_TITLE": {
+            return action.payload;
+        }
+        default:
+            return title;
         
     }
 }
@@ -24,5 +36,6 @@ const movies = function(movies = [], action) {
 
 export default combineReducers({
     counterOne: counter,
-    movies
+    movies,
+    title
 })

@@ -8,7 +8,12 @@ class Users extends React.Component {
 
     render() {
         return <>
-            <h1>{this.props.counter}</h1>
+            <input 
+                type="text"
+                value={this.props.title}
+                className="form-control"
+                onChange={e => this.props.setTitle(e.target.value)}
+            />
             <ul className="list-group">
                 {this.props.movies.map(movie => {
                     return <li key={movie.id} className="list-group-item">{movie.title}</li>
@@ -34,10 +39,20 @@ function getGlobalMovies() {
     };
   }
 
-const mapStateToProps = state => ({ movies: state.movies, counter: state.counterOne });
+
+const mapStateToProps = state => {
+    return { 
+        movies: state.movies,
+        title: state.title
+    }
+};
 const mapStateToDispatch = dispatch => {
     return {
-        getMovies: () => dispatch(getGlobalMovies())
+        getMovies: () => dispatch(getGlobalMovies()),
+        setTitle: title => dispatch({
+            type: "SET_TITLE", 
+            payload: title
+        })
     }
 }
 
