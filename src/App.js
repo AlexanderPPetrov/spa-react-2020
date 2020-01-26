@@ -6,14 +6,15 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Users from './pages/Users';
 import Navbar from './components/Navbar';
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 const Layout = props => {
   return (
